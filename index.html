@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>TechEdu</title>
+    <style>
+        .mySlides {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- /************************
+             NAVBAR
+*******************************/ -->
+    <header>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="hamburger">&#9776;</label>
+        <a href="#" class="logo">LOGO</a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="learnings.html">Learnings</a></li>
+                <li class="courses">
+                    <a href="">
+                        <label for="check-drop" class="down-arr">Courses &#x25BE;</label>
+
+                    </a>
+                    <input type="checkbox" id="check-drop">
+                    <ul class="dropdown">
+                        <li><a href="">dropdown1</a></li>
+                        <li><a href="">dropdown2</a></li>
+                        <li><a href="">dropdown3</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Internships</a></li>
+                <li><a href="">Events</a></li>
+                <li><a href="">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- /*****************************
+             SLIDER
+*******************************/ -->
+    <div class="container">
+        <div class="container-slider" style="max-width:100%">
+            <img class="mySlides" src="pexels-pixabay-36762.jpg" style="width:100%">
+            <img class="mySlides" src="pexels-pixabay-47334.jpg" style="width:100%">
+            <img class="mySlides" src="img2.jpg" style="width:100%">
+        </div>
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) {
+                    myIndex = 1
+                }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 3000); // Change image every 2 seconds
+
+            }
+        </script>
+    </div>
+
+    <!-- /*****************************
+            Our Accreditations
+*******************************/ -->
+
+    <div class="container">
+        <div class="my-accreditation">
+            <span> Our Accreditations</span>
+            <span><img src="AICTE-Logo-250x250-1.png" alt=""></span>
+        </div>
+    </div>
+
+    <!-- /*****************************
+            What WE offers you?
+*******************************/ -->
+
+    <div class="container-layout">
+        <div class="layout-head">What WE offers you?</div>
+        <div class="container-inner-layout">
+            <div class="layout">
+                <div class="layouts-box">
+                    <div class="layout-items">
+                        <h1>card1</h1>
+                        <h3>title1</h3>
+                        <p>Lorem ipsum dolo adipisicing elit. Optio quia, dicta smmodi rerum illo hic eius nemo animi earum quaerat </p>
+                    </div>
+                </div>
+                <div class="layouts-box">
+                    <div class="layout-items">
+                        <h1>card2</h1>
+                        <h3>title2</h3>
+                        <p>Lorem ipsum dolo adipisicing elit. Optio quia, dicta smmodi rerum illo hic eius nemo animi earum quaerat </p>
+                    </div>
+                </div>
+            </div>
+            <div class="layout2">
+                <div class="layouts-box">
+                    <div class="layout-items">
+                        <h1>card1</h1>
+                        <h3>title1</h3>
+                        <p>Lorem ipsum dolo adipisicing elit. Optio quia, dicta smmodi rerum illo hic eius nemo animi earum quaerat </p>
+                    </div>
+                </div>
+                <div class="layouts-box">
+                    <div class="layout-items">
+                        <h1>card2</h1>
+                        <h3>title2</h3>
+                        <p>Lorem ipsum dolo adipisicing elit. Optio quia, dicta smmodi rerum illo hic eius nemo animi earum quaerat </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /*****************************
+           Our services
+*******************************/ -->
+    <div class="container-services">
+        <h1>Our Services</h1>
+        <div class="services-contents">
+            <div class="services-items">
+                <h2>Community section</h2>
+            </div>
+            <div class="services-items">
+                <h2>Industry Courses</h2>
+            </div>
+            <div class="services-items">
+                <h2>Expert Talk</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- /*****************************
+             Our Learners
+*******************************/ -->
+    <div class="container-learn">
+        <h1> Our Learners</h1>
+        <div class="container-learners">
+            <div class="card"></div>
+            <div class="card active"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+        <script>
+            let holder = document.querySelectorAll('.container-learners')[0],
+                cards = document.querySelectorAll('.card');
+            let preActiveCard = cards[1];
+            let nextActiveCard = cards[2];
+
+            function scrollLeft() {
+                holder.classList.remove('next');
+                holder.classList.remove('reset');
+                holder.classList.add('next');
+
+                preActiveCard.classList.remove('active');
+                nextActiveCard.classList.add('active');
+                setTimeout(reset, 600);
+            }
+
+            function reset() {
+                holder.classList.remove('next');
+                holder.classList.add('reset');
+                preActiveCard.classList.add('active');
+                nextActiveCard.classList.remove('active');
+            }
+            setInterval(scrollLeft, 1500);
+        </script>
+    </div>
+
+
+    <!-- /*****************************
+            Contact Form
+*******************************/ -->
+    <div class="container-form-main">
+        <h1>Contact Form</h1>
+        <div class="container-form">
+
+            <form action="action_page.php">
+                <div class="section-form1">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="fname" id="form-label">Full Name</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="fname" name="fullnamee" placeholder="Your name..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="email" id="form-label">Email</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="emain" name="emain" placeholder="Enter your email..">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="subject" id="form-label">Message</label>
+                        </div>
+                        <div class="col-75">
+                            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-form2">
+                    <div class="row">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- /*****************************
+               Footer
+*******************************/ -->
+    <footer>
+        <div class="container-footer">
+            <div class="footer-sections">
+                <div class="footer-containers">
+                    <div class="footer-inner">
+                        <img src="logo.png" alt="">
+                        <h4> Techedu Learning</h4>
+                        <div class="social-icons">
+                            <a href="#" class="fa fa-facebook"></a>
+                            <a href="#" class="fa fa-twitter"></a>
+                            <a href="#" class="fa fa-google"></a>
+                            <a href="#" class="fa fa-linkedin"></a>
+                            <a href="#" class="fa fa-youtube"></a>
+                            <a href="#" class="fa fa-instagram"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-containers">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Terms of Services</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-sections">
+                <div class="footer-containers">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="">Python programming</a></li>
+                        <li><a href="">Python for Data Science</a></li>
+                        <li><a href="">C++</a></li>
+                        <li><a href="">Java</a></li>
+                        <li><a href="">AUTOCAD</a></li>
+                        <li><a href="">Digital Branding</a></li>
+                    </ul>
+                </div>
+                <div class="footer-containers">
+                    <h4>Internships</h4>
+                    <ul>
+                        <li><a href="">Web Development</a></li>
+                        <li><a href="">Data Science</a></li>
+                        <li><a href="">Internet Of Things</a></li>
+                        <li> <a href="">Human Resourses</a></li>
+                        <li><a href="">Digital Marketing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer1">
+        <p>copyright 2022 © Techedu</p>
+    </div>
+</body>
+
+</html>
